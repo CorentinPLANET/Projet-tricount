@@ -7,8 +7,8 @@ use PDO;
 
 class Database
 {
-  protected $db;
   private static $singleton = null;
+  protected $db;
   public function __construct()
   {
     try {
