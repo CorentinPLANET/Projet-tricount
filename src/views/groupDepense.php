@@ -18,7 +18,7 @@
     <div class="groupNav">
         <a class="groupNav-item" href="groupDepense">Dépenses</a>
         <a class="groupNav-center" href="groupEquilibre">Equilibres</a>
-        <a class="groupNav-item" href="#">Photos</a>
+        <a class="groupNav-item" href="groupPhotos">Photos</a>
     </div>
     <div class="depense">
         <div class="depense-item">

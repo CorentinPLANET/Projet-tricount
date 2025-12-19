@@ -73,7 +73,7 @@ header img {
 }
 .title-input {
   width: 70%;
-  padding: 20px 0;
+  height: 10vw;
   border: none;
   border-radius: 20px;
   color: #ffffff;
@@ -98,7 +98,7 @@ header img {
 }
 .amount-input {
   width: 85%;
-  padding: 20px 0;
+  height: 10vw;
   border: none;
   border-radius: 20px;
   color: #ffffff;
@@ -128,7 +128,8 @@ header img {
 }
 .creator-input {
   width: 100%;
-  padding: 20px 0;
+  height: 10vw;
+  padding: 8% 4%;
   border: none;
   border-radius: 20px;
   color: #ffffff;
@@ -141,13 +142,55 @@ header img {
   margin-left: 2%;
 }
 .date-input {
-  width: 100%;
-  padding: 20px 0;
+  width: 90%;
+  height: 10vw;
+  padding: 0 5%;
   border: none;
   border-radius: 20px;
   color: #ffffff;
   background-color: #424242;
 }
+.sharing {
+  display: flex;
+  justify-content: space-between;
+  margin: 4% 0;
+  width: 85%;
+}
+.share-type-input {
+  width: 5vw;
+  height: 5vw;
+}
+.share-type-option {
+  border: 0;
+  color: #ffffff;
+  background-color: #202020;
+}
+.all-contributor {
+  width: 90%;
+  padding: 0 5%;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #424242;
+}
+.contributor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3% 0;
+}
+.contributor:not(:nth-child(1)) {
+  border-top: #626262 solid 2px;
+}
+.contributor-left {
+  display: flex;
+  gap: 2vw;
+}
+.contributor-input {
+  width: 5vw;
+  height: 5vw;
+}
+
 .save {
   position: fixed;
   bottom: 2vh;

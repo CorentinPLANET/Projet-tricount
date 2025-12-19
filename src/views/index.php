@@ -2,15 +2,7 @@
 
 <div class="container">
     <img class="logo-tricount" src="assets/img/logo-tricount.svg" alt="logo tricount">
-
-    <?php if (!empty($success)): ?>
-        <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
-    <?php endif; ?>
-
-    <?php if (!empty($error["action"])): ?>
-        <div class="alert alert-error"><?= htmlspecialchars($error["action"],) ?></div>
-    <?php endif; ?>
-
+    
     <a class="button-card" href="groupDepense">
         <strong> City-trip </strong><br /> Un petit exemple de compte
     </a>
