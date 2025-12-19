@@ -1,0 +1,2 @@
+<?php
+render("groupEquilibre", false);

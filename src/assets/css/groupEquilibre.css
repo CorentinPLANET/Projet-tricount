@@ -1,0 +1,118 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: #202020;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  padding: 3% 0;
+  width: 100vw;
+  background-color: #202020;
+}
+.header-right {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+  margin-right: 2%;
+}
+header > a {
+  margin-left: 2%;
+}
+
+header img {
+  width: 40px;
+}
+
+h1{
+    color:white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+}
+
+.container {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.groupNav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90vw;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+}
+
+.groupNav-item,
+.groupNav-center {
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  padding: 4% 0;
+}
+.groupNav-center {
+  border-style: solid;
+  border-color: #ffffff;
+  border-top: 2px;
+  border-bottom: 2px;
+}
+
+.groupNav-item:hover, .groupNav-center:hover{
+    background-color: white;
+    color: black;
+}
+
+h2 {
+    color: white;
+    margin-top : 5%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+}
+
+.section-equilibre {
+    width: 90vw;
+}
+
+.equilibre-money {
+    background-color: rgb(48, 48, 48);
+    border: none;
+    border-radius: 1rem;
+    margin-left: 5% ;
+    width: 90%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+
+.equilibre-people, .money {
+    display: flex;
+    gap: 10px;
+
+}
+
+img {
+    justify-content:flex-start;
+    margin-left: 5%;
+}
+
+.money-positive{
+    color: greenyellow;
+}
+
+.money-negative{
+    color: red;
+}
