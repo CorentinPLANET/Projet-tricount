@@ -38,7 +38,7 @@ header {
   padding: 2% 0;
   margin: 2% 0;
   align-items: center;
-  background-color: #424242;
+  background-color: #303030;
   border-radius: 20px;
 }
 .connect-item {
@@ -67,7 +67,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #424242;
+  background-color: #303030;
   border-radius: 20px;
 }
 .preference-item {

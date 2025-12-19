@@ -33,25 +33,27 @@
 
     <div class="section-equilibre">
         <h2>Équilibres</h2>
-        <div class="equilibre-money">
-            <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Alex (moi) </div>
-            <div class="money">+0.00 €</div>
-        </div>
-        <div class="equilibre-money">
-            <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Bruno</div>
-            <div class="money">+0.00 €</div>
-        </div>
-        <div class="equilibre-money">
-            <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Julia</div>
-            <div class="money-positive">+29.35 €</div>
-        </div>
-        <div class="equilibre-money">
-            <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Loic</div>
-            <div class="money">+0.00 €</div>
-        </div>
-        <div class="equilibre-money">
-            <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Thomas</div>
-            <div class="money-negative">-29.35 €</div>
+        <div class="equilibre">
+            <div class="equilibre-money">
+                <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Alex (moi) </div>
+                <div class="money">+0.00 €</div>
+            </div>
+            <div class="equilibre-money">
+                <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Bruno</div>
+                <div class="money">+0.00 €</div>
+            </div>
+            <div class="equilibre-money">
+                <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Julia</div>
+                <div class="money-positive">+29.35 €</div>
+            </div>
+            <div class="equilibre-money">
+                <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Loic</div>
+                <div class="money">+0.00 €</div>
+            </div>
+            <div class="equilibre-money">
+                <div class="equilibre-people"><img src="assets/img/pdp.svg" alt="photo de profil">Thomas</div>
+                <div class="money-negative">-29.35 €</div>
+            </div>
         </div>
     </div>
 </div>

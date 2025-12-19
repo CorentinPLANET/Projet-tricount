@@ -1,10 +1,10 @@
-*{
-    margin:0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background-color: #202020;
+body {
+  background-color: #202020;
 }
 
 header {
@@ -30,18 +30,18 @@ header img {
   width: 40px;
 }
 
-h1{
-    color:white;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3px;
+h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3px;
 }
 
 .container {
-    margin-top: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .groupNav {
@@ -68,9 +68,21 @@ h1{
   border-bottom: 2px;
 }
 
-.groupNav-item:hover, .groupNav-center:hover{
-    background-color: white;
-    color: black;
+.groupNav-item:first-child:hover {
+  background-color: white;
+  border-radius: 10px 0 0 10px;
+  color: black;
+}
+
+.groupNav-center:hover {
+  background-color: white;
+  border-radius: 0 0 0 0;
+  color: black;
+}
+.groupNav-item:last-child:hover {
+  background-color: white;
+  border-radius: 0 10px 10px 0;
+  color: black;
 }
 
 .photo {

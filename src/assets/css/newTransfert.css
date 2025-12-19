@@ -53,7 +53,6 @@ header img {
   border-top: 2px;
   border-bottom: 2px;
 }
-
 .nav-item:first-child:hover {
   background-color: #0091ff;
   border-radius: 10px 0 0 10px;
@@ -67,7 +66,6 @@ header img {
   background-color: #0091ff;
   border-radius: 0 10px 10px 0;
 }
-
 .form {
   width: 90vw;
   display: flex;
@@ -165,47 +163,19 @@ header img {
   color: #ffffff;
   background-color: #303030;
 }
-.sharing {
-  display: flex;
-  justify-content: space-between;
-  margin: 4% 0;
-  width: 85%;
+.transfert {
+  margin-top: 4%;
+  width: 90vw;
 }
-.share-type-input {
-  width: 5vw;
-  height: 5vw;
-}
-.share-type-option {
-  border: 0;
-  color: #ffffff;
-  background-color: #202020;
-}
-.all-contributor {
-  width: 90%;
+.receiver {
+  width: 100%;
+  height: 10vw;
   padding: 0 5%;
-  color: #ffffff;
+  border: none;
   border-radius: 20px;
+  color: #ffffff;
   background-color: #303030;
 }
-.contributor {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3% 0;
-}
-.contributor:not(:nth-child(1)) {
-  border-top: #626262 solid 2px;
-}
-.contributor-left {
-  display: flex;
-  gap: 2vw;
-}
-.contributor-input {
-  width: 5vw;
-  height: 5vw;
-}
-
 .save {
   position: fixed;
   bottom: 2vh;

@@ -7,7 +7,18 @@
   margin-top: 4%;
   width: 70%;
 }
-
+.newGroup {
+  position: fixed;
+  bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  text-decoration: none;
+  line-height: 3vh;
+  text-align: center;
+}
 .button-card {
   display: flex;
   flex-direction: column;
@@ -18,10 +29,9 @@
   width: 80%;
   padding: 4% 0;
 
-  background-color: #424242;
+  background-color: #303030;
   border-radius: 8px;
 
   text-decoration: none;
   color: white;
 }
-

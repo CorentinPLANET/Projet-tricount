@@ -11,7 +11,7 @@
     <nav class="nav">
         <a class="nav-item" href="newDepense">Dépense</a>
         <a class="nav-center" href="newRevenu">Revenu</a>
-        <a class="nav-item" href="newTransfet">Transfert</a>
+        <a class="nav-item" href="newTransfert">Transfert</a>
     </nav>
 
     <form action="" method="post" class="form">
@@ -34,7 +34,7 @@
             <div class="depense-creator">
                 <p>Payé par</p>
                 <select name="creator" class="creator-input">
-                    <option value="0">Alex</option>
+                    <option value="0" selected>Alex</option>
                     <option value="1">Bruno</option>
                     <option value="2">Julia</option>
                     <option value="3">Loic</option>
