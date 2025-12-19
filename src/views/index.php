@@ -1,11 +1,19 @@
-<?php ob_start(); ?>
+<?php
+
+ob_start(); ?>
 
 <div class="container">
     <img class="logo-tricount" src="assets/img/logo-tricount.svg" alt="logo tricount">
 
+    <?php
+    foreach ($groups as $group) {
+        echo "<a class='button-card' href='groupDepense?id=" . $group[0]['id'] . "'
+                <strong> " . $group[0]['name'] . " </strong></a>";
+    } ?>
     <a class="button-card" href="groupDepense">
         <strong> City-trip </strong><br /> Un petit exemple de compte
     </a>
+
 
     <a href="newGroup" class="newGroup">
         <img src="../assets/img/placeholder.png" alt="new tricount">

@@ -5,7 +5,7 @@ namespace Models;
 use Exception;
 use PDO;
 
-class Relation extends Database
+class GroupRelation extends Database
 {
 
     private $groupId = null;
@@ -23,13 +23,13 @@ class Relation extends Database
     public function setUser($value)
     {
         if (empty($value)) throw new Exception("L'utilisateur doit être sélectionner");
-        if (!preg_match('\d+', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->userId= htmlspecialchars($value);
     }
     public function setGroup($value)
     {
         if (empty($value)) throw new Exception("Le groupe doit être sélectionner");
-        if (!preg_match('\d+', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->groupId= htmlspecialchars($value);
     }
     //METHODS

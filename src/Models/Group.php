@@ -50,7 +50,7 @@ class Group extends Database
      * @return array group indexed by column name (recommended use with foreach)
      */
     public function getById($value){
-        $queryExecute = $this->db->prepare("SELECT * FROM `group` WHERE id = :id");
+        $queryExecute = $this->db->prepare("SELECT * FROM `groups` WHERE id = :id");
         $queryExecute->bindValue(":id",$value,PDO::PARAM_INT);
         $queryExecute->execute();
         return $queryExecute->fetchAll(PDO::FETCH_ASSOC);

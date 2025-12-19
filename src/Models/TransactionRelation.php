@@ -26,13 +26,13 @@ class TransactionRelation extends Database
     public function setTransaction($value)
     {
         if (empty($value)) throw new Exception("La transaction doit être sélectionner");
-        if (!preg_match('\d+', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->transactionId = htmlspecialchars($value);
     }
     public function setContributor($value)
     {
         if (empty($value)) throw new Exception("Le contributeur doit être sélectionner");
-        if (!preg_match('\d+', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->contributorId = htmlspecialchars($value);
     }
     //METHODS

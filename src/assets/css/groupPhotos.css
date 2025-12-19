@@ -48,6 +48,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 90vw;
+  margin-top: 4%;
   border: 2px solid #ffffff;
   border-radius: 20px;
 }
