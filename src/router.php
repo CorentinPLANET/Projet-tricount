@@ -9,7 +9,7 @@ if ($path == "/") {
 } else {
   $path = explode("/", $path)[1];
 
-  $controlleur = "controllers/" . $path . "Controler.php";
+  $controlleur = "controllers/" . $path . "Controller.php";
 
   if (file_exists($controlleur)) {
     require $controlleur;
