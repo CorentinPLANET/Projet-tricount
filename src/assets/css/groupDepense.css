@@ -111,6 +111,7 @@ header img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-self: center;
   width: 16vw;
   text-decoration: none;
   text-align: center;

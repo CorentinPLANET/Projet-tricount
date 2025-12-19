@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 
 <header>
-    <a href="groupDepense">
+    <a href="groupDepense?id=<?= $group['id'] ?>">
         <img src="../assets/img/Back.png" alt="Back">
     </a>
     <p>Ajouter une dépense</p>
@@ -9,9 +9,9 @@
 
 <div class="content">
     <nav class="nav">
-        <a class="nav-item" href="newDepense">Dépense</a>
-        <a class="nav-center" href="newRevenu">Revenu</a>
-        <a class="nav-item" href="newTransfet">Transfert</a>
+        <a class="nav-item" href="newDepense?id=<?= $group['id'] ?>">Dépense</a>
+        <a class="nav-center" href="newRevenu?id=<?= $group['id'] ?>">Revenu</a>
+        <a class="nav-item" href="newTransfet?id=<?= $group['id'] ?>">Transfert</a>
     </nav>
 
     <form action="" method="post" class="form">

@@ -10,6 +10,7 @@ class TransactionRelation extends Database
 
     private $transactionId = null;
     private $contributorId = null;
+    private $groupId = null;
 
 
     //GETTERS
@@ -20,6 +21,10 @@ class TransactionRelation extends Database
     public function getContributor()
     {
         return $this->contributorId;
+    }
+    public function getGroup()
+    {
+        return $this->groupId;
     }
 
     //SETTERS
@@ -35,6 +40,13 @@ class TransactionRelation extends Database
         if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->contributorId = htmlspecialchars($value);
     }
+    public function setGroup($value)
+    {
+        if (empty($value)) throw new Exception("La transaction doit être sélectionner");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        $this->groupId = htmlspecialchars($value);
+    }
+
     //METHODS
     /**
      * Creates new TransactionRelation between Transaction and User
@@ -61,7 +73,7 @@ class TransactionRelation extends Database
     {
         if (!isset($this->transactionId)) throw new Exception("La transaction doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("SELECT `contributor_id` FROM `transaction_user` WHERE `transaction_id` = :transaction");
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `contributor_id` FROM `transaction_user` WHERE `transaction_id` = :transaction");
 
         $queryExecute->bindValue(":transaction", $this->transactionId, PDO::PARAM_INT);
         $queryExecute->execute();
@@ -76,9 +88,24 @@ class TransactionRelation extends Database
     {
         if (!isset($this->contributorId)) throw new Exception("Le contributeur doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("SELECT `transaction_id` FROM `transaction_user` WHERE `contributor_id` = :contributor");
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `transaction_id` FROM `transaction_user` WHERE `contributor_id` = :contributor");
 
         $queryExecute->bindValue(":contributor", $this->contributorId, PDO::PARAM_INT);
+        $queryExecute->execute();
+
+        return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
+    }
+    /**
+     * Gets all transactions from a designated group
+     * @return array all transactions from specified group indexed by the column name "transaction_id" (recommended use with foreach)
+     */
+    public function getTransactionsFromGroup()
+    {
+        if (!isset($this->groupId)) throw new Exception("Le ^groupe doit être sélectionner");
+
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `transaction_id` FROM `transaction_user` WHERE `group_id` = :group");
+
+        $queryExecute->bindValue(":group", $this->groupId, PDO::PARAM_INT);
         $queryExecute->execute();
 
         return $queryExecute->fetchAll(PDO::FETCH_ASSOC);

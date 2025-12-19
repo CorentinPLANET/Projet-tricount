@@ -7,8 +7,8 @@ ob_start(); ?>
 
     <?php
     foreach ($groups as $group) {
-        echo "<a class='button-card' href='groupDepense?id=" . $group[0]['id'] . "'
-                <strong> " . $group[0]['name'] . " </strong></a>";
+        echo "<a class='button-card' href='groupDepense?id=" . $group['id'] . "'
+                <strong> " . $group['name'] . " </strong></a>";
     } ?>
     <a class="button-card" href="groupDepense">
         <strong> City-trip </strong><br /> Un petit exemple de compte

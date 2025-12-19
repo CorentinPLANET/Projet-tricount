@@ -52,7 +52,7 @@ class Transaction extends Database
         if (empty($this->creatorId)) throw new Exception("ERREUR identifiant createur");
         if (empty($this->amount)) throw new Exception("ERREUR quantité argent");
 
-        $queryExecute = $this->db->prepare("INSERT INTO `transaction`(`name`,`creator_id`,`amount`) 
+        $queryExecute = $this->db->prepare("INSERT INTO `transactions`(`name`,`creator_id`,`amount`) 
         VALUES (:name, :creator_id, :amount)");
 
         $queryExecute->bindValue(":name", $this->name, PDO::PARAM_STR);
@@ -69,7 +69,7 @@ class Transaction extends Database
     {
         if (empty($value)) throw new Exception("ERREUR transaction invalide");
 
-        $queryExecute = $this->db->prepare("DELETE FROM `transaction` WHERE `id` = :id");
+        $queryExecute = $this->db->prepare("DELETE FROM `transactions` WHERE `id` = :id");
         $queryExecute->bindValue(":id", $value, PDO::PARAM_INT);
         return $queryExecute->execute();
     }
@@ -80,7 +80,7 @@ class Transaction extends Database
      */
     public function getById($value)
     {
-        $queryExecute = $this->db->prepare("SELECT * FROM `group` WHERE id = :id");
+        $queryExecute = $this->db->prepare("SELECT * FROM `transactions` WHERE id = :id");
         $queryExecute->bindValue(":id", $value, PDO::PARAM_INT);
         $queryExecute->execute();
         return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
@@ -91,7 +91,7 @@ class Transaction extends Database
      */
     public function getAllTransactions()
     {
-        $queryExecute = $this->db->prepare("SELECT * FROM `transaction`");
+        $queryExecute = $this->db->prepare("SELECT * FROM `transactions`");
         $queryExecute->execute();
         return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
     }

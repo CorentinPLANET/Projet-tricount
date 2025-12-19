@@ -1,3 +1,8 @@
 <?php 
+$group_id = $_GET['id'];
 
-render("newRevenu",false);
+$groupObject = new Models\Group;
+$group = $groupObject->getById($group_id)[0];
+
+render("newRevenu", false,[
+    "group" => $group]);

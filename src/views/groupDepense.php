@@ -13,12 +13,12 @@
     </div>
 </header>
 <div class="content">
-    <img src="" alt="">
-    <h1>City-trip</h1>
+    <?php 
+    echo "<h1>" . $group['name'] . " </h1>"   ?>
     <div class="groupNav">
-        <a class="groupNav-item" href="groupDepense">Dépenses</a>
-        <a class="groupNav-center" href="groupEquilibre">Equilibres</a>
-        <a class="groupNav-item" href="groupPhotos">Photos</a>
+        <a class="groupNav-item" href="groupDepense?id=<?= $group['id'] ?>">Dépenses</a>
+        <a class="groupNav-center" href="groupEquilibre?id=<?= $group['id'] ?>">Equilibres</a>
+        <a class="groupNav-item" href="groupPhotos?id=<?= $group['id'] ?>">Photos</a>
     </div>
     <div class="depense">
         <div class="depense-item">
@@ -31,39 +31,30 @@
         </div>
     </div>
     <div class="transaction">
-        <div class="transaction-item">
-            <div class="transaction-item-left">
-
-                <img src="" alt="">
-                <div class="transaction-info">
-                    <p>Test D</p>
-                    <p>payé par Moi</p>
+        <?php foreach ($transactions as $transaction) {
+            $name = $user->getById($transaction['creator_id'])[0]['username'];
+            echo
+            "<div class='transaction-item'>
+            <div class='transaction-item-left'>
+                <div class='transaction-info'>
+                    <p>" . $transaction['transaction_name'] . "</p>
+                    <p>payé par " . $name . "</p>
                 </div>
             </div>
-            <p class="transaction-item-right">100,00€</p>
-        </div>
-        <div class="transaction-item">
-            <div class="transaction-item-left">
-                <img src="" alt="">
-                <div class="transaction-info">
-                    <p>Test</p>
-                    <p>transféré par Moi</p>
-                </div>
-            </div>
-            <p class="transaction-item-right">60,00€</p>
-        </div>
+            <p class='transaction-item-right'>" . $transaction['amount'] . "</p>
+        </div>";
+        }
+        ?>
+        <a class="addTransaction" href="newDepense?id=<?= $group['id'] ?>"><img src="../assets/img/placeholder.png" alt="newTransaction">
+            <p>Ajouter une dépense</p>
+        </a>
     </div>
 
-    <a class="addTransaction" href="newDepense"><img src="../assets/img/placeholder.png" alt="newTransaction">
-        <p>Ajouter une dépense</p>
-    </a>
-</div>
 
 
+    <?php render("default", true, [
+        "title" => "Tricount",
+        "css" => "groupDepense",
+        "content" => ob_get_clean()
 
-<?php render("default", true, [
-    "title" => "Tricount",
-    "css" => "groupDepense",
-    "content" => ob_get_clean()
-
-]);
+    ]);

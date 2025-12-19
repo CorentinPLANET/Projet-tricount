@@ -26,9 +26,9 @@
     <?php endif; ?>
 
     <div class="groupNav">
-        <a class="groupNav-item" href="groupDepense">Dépenses</a>
-        <a class="groupNav-center" href="groupEquilibre">Equilibres</a>
-        <a class="groupNav-item" href="groupPhotos">Photos</a>
+        <a class="groupNav-item" href="groupDepense?id=<?= $group['id'] ?>">Dépenses</a>
+        <a class="groupNav-center" href="groupEquilibre?id=<?= $group['id'] ?>">Equilibres</a>
+        <a class="groupNav-item" href="groupPhotos?id=<?= $group['id'] ?>">Photos</a>
     </div>
 
     <div class="section-equilibre">

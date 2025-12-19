@@ -67,4 +67,15 @@ class User extends Database
 
         return $queryExecute->execute();
     }
+        /**
+     * Gets a user in table by its Id
+     * @param int $value Identifier of group
+     * @return array user indexed by column name (recommended use with foreach)
+     */
+    public function getById($value){
+        $queryExecute = $this->db->prepare("SELECT * FROM `users` WHERE id = :id");
+        $queryExecute->bindValue(":id",$value,PDO::PARAM_INT);
+        $queryExecute->execute();
+        return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -33,9 +33,11 @@ CREATE TABLE IF NOT EXISTS `group_user` (
 CREATE TABLE IF NOT EXISTS transaction_user (
     transaction_id INT NOT NULL,
     contributor_id INT NOT NULL,
-    PRIMARY KEY (transaction_id, contributor_id),
+    group_id INT NOT NULL,
+    PRIMARY KEY (transaction_id, contributor_id,group_id),
     FOREIGN KEY (transaction_id) REFERENCES transactions(id),
-    FOREIGN KEY (contributor_id) REFERENCES `users`(id)
+    FOREIGN KEY (contributor_id) REFERENCES `users`(id),
+    FOREIGN KEY (group_id) REFERENCES `groups`(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `groups` (`id`, `name`) VALUES
@@ -63,16 +65,16 @@ INSERT INTO `transactions` (`id`, `transaction_name`, `creator_id`, `amount`, `d
 (4, 'Lego', 1, 50, '2025-12-19 21:39:26'),
 (5, 'Robux', 1, 50, '2025-12-19 21:39:26');
 
-INSERT INTO `transaction_user` (`transaction_id`, `contributor_id`) VALUES
-(2, 2),
-(3, 2),
-(2, 3),
-(3, 3),
-(2, 4),
-(3, 4),
-(5, 4),
-(2, 5),
-(3, 5);
+INSERT INTO `transaction_user` (`transaction_id`, `contributor_id`, `group_id`) VALUES
+(2, 2, 3),
+(3, 2, 3),
+(2, 3, 3),
+(3, 3, 3),
+(2, 4, 3),
+(3, 4, 3),
+(5, 4, 3),
+(2, 5, 3),
+(3, 5, 3);
 
 INSERT INTO `users`(`id`, `mail`, `password`, `username`) VALUES
 (1, 'corentinplanet@gmail.com', '1234', 'Coco'),
