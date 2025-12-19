@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <a class="addTransaction" href=""><img src="../assets/img/newTransaction.png" alt="newTransaction">
+    <a class="addTransaction" href="newDepense"><img src="../assets/img/newTransaction.png" alt="newTransaction">
         <p>Ajouter une dépense</p>
     </a>
 </div>
