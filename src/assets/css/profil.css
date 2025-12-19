@@ -1,0 +1,95 @@
+body {
+  background-color: #202020;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202020;
+  width: 100vw;
+  padding: 5% 0;
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  padding: 2% 0;
+  background-color: #323232;
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+h1,
+p {
+  color: white;
+  font-size: large;
+}
+.content {
+  margin: 15% 0 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+}
+.tricount-ad {
+  width: 80vw;
+  text-align: center;
+}
+.connect {
+  display: flex;
+  width: 80vw;
+  flex-direction: column;
+  padding: 2% 0;
+  margin: 2% 0;
+  align-items: center;
+  background-color: #424242;
+  border-radius: 20px;
+}
+.connect-item {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  padding: 3% 0;
+  border-radius: 10px;
+  margin: 2% 0;
+  background-color: #525252;
+}
+.notification {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 2% 0;
+}
+.news {
+  width: 5%;
+  height: 5%;
+}
+.section-preference {
+  width: 80vw;
+}
+.preference {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #424242;
+  border-radius: 20px;
+}
+.preference-item {
+  display: flex;
+  width: 90%;
+  margin: 2% 0;
+  justify-content: space-between;
+}
