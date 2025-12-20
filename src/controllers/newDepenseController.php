@@ -2,7 +2,7 @@
 $group_id = $_GET['id'];
 
 $groupObject = new Models\Group;
-$group = $groupObject->getById($group_id)[0];
+$group = $groupObject->getById($group_id);
 
 render("newDepense", false,[
     "group" => $group]);

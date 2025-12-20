@@ -32,7 +32,7 @@
     </div>
     <div class="transaction">
         <?php foreach ($transactions as $transaction) {
-            $name = $user->getById($transaction['creator_id'])[0]['username'];
+            $name = $user->getById($transaction['creator_id'])['username'];
             echo
             "<div class='transaction-item'>
             <div class='transaction-item-left'>

@@ -11,7 +11,7 @@ $groupsRelation = $groupRelation->getGroupsFromUser();
 $groupObject = new Group;
 $groups = [];
 foreach ($groupsRelation as $group) {
-    array_push($groups, $groupObject->getById($group['group_id'])[0]);
+    array_push($groups, $groupObject->getById($group['group_id']));
 };
 
 render("index", false, [

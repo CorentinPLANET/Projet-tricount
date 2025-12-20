@@ -83,7 +83,7 @@ class Transaction extends Database
         $queryExecute = $this->db->prepare("SELECT * FROM `transactions` WHERE id = :id");
         $queryExecute->bindValue(":id", $value, PDO::PARAM_INT);
         $queryExecute->execute();
-        return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
+        return $queryExecute->fetch(PDO::FETCH_ASSOC);
     }
     /**
      * Gets all transactions in table

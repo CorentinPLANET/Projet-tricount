@@ -53,7 +53,7 @@ class Group extends Database
         $queryExecute = $this->db->prepare("SELECT * FROM `groups` WHERE id = :id");
         $queryExecute->bindValue(":id",$value,PDO::PARAM_INT);
         $queryExecute->execute();
-        return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
+        return $queryExecute->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
