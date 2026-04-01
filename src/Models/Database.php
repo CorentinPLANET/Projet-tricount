@@ -14,7 +14,7 @@ class Database
     try {
       if (self::$singleton == null) {
         self::$singleton = new PDO(
-          "mysql:host=mysql-con;dbname=database;charset=utf8",
+          "mysql:host=mariadb-tri-con;dbname=database;charset=utf8",
           "user",
           "password",
         );

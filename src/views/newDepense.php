@@ -26,7 +26,7 @@
         <div class="amount">
             <p>Montant</p>
             <div class="amount-content">
-                <input type="number" name="amount" class="amount-input">
+                <input type="number" name="amount" class="amount-input" id="amount-input">
                 <div class="amount-option"></div>
             </div>
         </div>
@@ -34,11 +34,11 @@
             <div class="depense-creator">
                 <p>Payé par</p>
                 <select name="creator" class="creator-input">
-                    <option value="0" selected>Alex</option>
-                    <option value="1">Bruno</option>
-                    <option value="2">Julia</option>
-                    <option value="3">Loic</option>
-                    <option value="4">Thomas</option>
+                    <?php
+                    foreach ($users as $user) {
+                        echo '<option value="' . $user["id"] . '" selected>' . $user["username"] . '</option>';
+                    }
+                    ?>
                 </select>
             </div>
             <div class="date">
@@ -55,41 +55,21 @@
             </select>
         </div>
         <div class="all-contributor">
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
+            <?php
+            foreach ($users as $user) {
+                echo '<div class="contributor"> 
+                <div class="contributor-left">
+                <input type="checkbox" name="' . $user["id"] . '" class="contributor-input">
+                    <p class="contributor-name">' . $user["username"] . '</p>
                 </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-        </div>
-        <button type="submit" value="save" class="save" >Sauvegarder</button>
+                <p class="contributor-amount"></p>
+            </div>';
+            }
+            ?>
+            <button type="submit" value="save" class="save">Sauvegarder</button>
     </form>
 </div>
-
+<script src="../assets/js/newDepenseScript.js"></script>
 
 
 

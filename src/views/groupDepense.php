@@ -13,7 +13,7 @@
     </div>
 </header>
 <div class="content">
-    <?php 
+    <?php
     echo "<h1>" . $group['name'] . " </h1>"   ?>
     <div class="groupNav">
         <a class="groupNav-item" href="groupDepense?id=<?= $group['id'] ?>">Dépenses</a>

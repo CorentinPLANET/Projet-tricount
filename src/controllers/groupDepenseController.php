@@ -1,18 +1,20 @@
-<?php 
+<?php
 $group_id = $_GET['id'];
 $userObject = new Models\User;
 
 $groupObject = new Models\Group;
 $group = $groupObject->getById($group_id);
 
-$transaction = new Models\TransactionRelation;
-$transactionObject = new Models\Transaction;
+$transactionRelationObject = new Models\TransactionRelation;
+$transactionRelationObject->setGroup($group_id);
+$transactionsData = $transactionRelationObject->getTransactionsFromGroup();
 
-$transaction->setGroup($group_id);
-$transaction_id = $transaction->getTransactionsFromGroup();
+$transactionObject = new Models\Transaction;
 $transactions = [];
-foreach ($transaction_id as $transaction) {
-    array_push($transactions, $transactionObject->getById($transaction['transaction_id']));
+foreach ($transactionsData as $transactionData) {
+    $transactionId = $transactionData['transaction_id'];
+    $transaction = $transactionObject->getById($transactionId);
+    array_push($transactions, $transaction);
 }
 
 render("groupDepense", false, [

@@ -67,10 +67,10 @@ class User extends Database
 
         return $queryExecute->execute();
     }
-        /**
+     /**
      * Gets a user in table by its Id
      * @param int $value Identifier of group
-     * @return array user indexed by column name (recommended use with foreach)
+     * @return array user indexed by column name
      */
     public function getById($value){
         $queryExecute = $this->db->prepare("SELECT * FROM `users` WHERE id = :id");

@@ -1,6 +1,6 @@
 services:
   php:
-    container_name: php-con
+    container_name: php-tri-con
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,30 +15,32 @@ services:
     networks:
       - app-network
 
-  mysql:
-    container_name: mysql-con
-    image: mysql
+  mariadb:
+    container_name: mariadb-tri-con
+    image: mariadb
     volumes:
-      - ./database:/var/lib/mysql
+      - ./database:/var/lib/mariadb:Z
     environment:
-      MYSQL_ROOT_PASSWORD: pw
-      MYSQL_DATABASE: database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: pw
+      MARIADB_DATABASE: database
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
     networks:
       - app-network
 
   phpmyadmin:
-    container_name: phpmyadmin-con
+    container_name: phpmyadmin-tri-con
     image: phpmyadmin
     depends_on:
-      - mysql
+      - mariadb
     environment:
-      PMA_HOST: mysql-con
+      PMA_ROOT_USER: root
+      PMA_ROOT_PASSWORD: root
+      PMA_HOST: mariadb-tri-con
       PMA_USER: user
       PMA_PASSWORD: password
     ports:
-      - '8080:80'
+      - "8080:80"
     networks:
       - app-network
 

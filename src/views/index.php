@@ -10,10 +10,6 @@ ob_start(); ?>
         echo "<a class='button-card' href='groupDepense?id=" . $group['id'] . "'
                 <strong> " . $group['name'] . " </strong></a>";
     } ?>
-    <a class="button-card" href="groupDepense">
-        <strong> City-trip </strong><br /> Un petit exemple de compte
-    </a>
-
 
     <a href="newGroup" class="newGroup">
         <img src="../assets/img/placeholder.png" alt="new tricount">

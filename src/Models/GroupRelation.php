@@ -12,10 +12,12 @@ class GroupRelation extends Database
     private $userId = null;
 
     //GETTERS
-    public function getUser(){
+    public function getUser()
+    {
         return $this->userId;
     }
-    public function getGroup(){
+    public function getGroup()
+    {
         return $this->groupId;
     }
 
@@ -24,13 +26,13 @@ class GroupRelation extends Database
     {
         if (empty($value)) throw new Exception("L'utilisateur doit être sélectionner");
         if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
-        $this->userId= htmlspecialchars($value);
+        $this->userId = htmlspecialchars($value);
     }
     public function setGroup($value)
     {
         if (empty($value)) throw new Exception("Le groupe doit être sélectionner");
         if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
-        $this->groupId= htmlspecialchars($value);
+        $this->groupId = htmlspecialchars($value);
     }
     //METHODS
     /**
@@ -54,12 +56,12 @@ class GroupRelation extends Database
     /**
      * Gets all users from a designated group
      * @return array all users from specified group indexed by the column name "user_id" (recommended use with foreach)
-    */
+     */
     public function getUsersFromGroup()
     {
         if (!isset($this->groupId)) throw new Exception("Le groupe doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("SELECT `user_id` FROM `group_user` WHERE `group_id` = :group");
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `user_id` FROM `group_user` WHERE `group_id` = :group");
 
         $queryExecute->bindValue(":group", $this->groupId, PDO::PARAM_INT);
         $queryExecute->execute();
@@ -74,7 +76,7 @@ class GroupRelation extends Database
     {
         if (!isset($this->userId)) throw new Exception("L'utilisateur doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("SELECT `group_id` FROM `group_user` WHERE `user_id` = :user");
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `group_id` FROM `group_user` WHERE `user_id` = :user");
 
         $queryExecute->bindValue(":user", $this->userId, PDO::PARAM_INT);
         $queryExecute->execute();
