@@ -10,6 +10,9 @@ class TransactionRelation extends Database
 
     private $transactionId = null;
     private $contributorId = null;
+    private $groupId = null;
+    private $amount = null;
+    private $complete = null;
 
 
     //GETTERS
@@ -21,20 +24,48 @@ class TransactionRelation extends Database
     {
         return $this->contributorId;
     }
+    public function getGroup()
+    {
+        return $this->groupId;
+    }
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+    public function getComplete()
+    {
+        return $this->complete;
+    }
 
     //SETTERS
     public function setTransaction($value)
     {
         if (empty($value)) throw new Exception("La transaction doit être sélectionner");
-        if (!preg_match('\d+', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->transactionId = htmlspecialchars($value);
     }
     public function setContributor($value)
     {
         if (empty($value)) throw new Exception("Le contributeur doit être sélectionner");
-        if (!preg_match('\d+', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
         $this->contributorId = htmlspecialchars($value);
     }
+    public function setGroup($value)
+    {
+        if (empty($value)) throw new Exception("Le Groupe doit être sélectionner");
+        if (!preg_match('/\d+/', $value)) throw new Exception("Une erreur vient de se produire, veuillez réessayez");
+        $this->groupId = htmlspecialchars($value);
+    }
+    public function setAmount($value)
+    {
+        if (empty($value)) throw new Exception("La quantité doit avoir une valeur");
+        $this->amount = htmlspecialchars($value);
+    }
+    public function setComplete($value)
+    {
+        return $this->complete = htmlspecialchars($value);
+    }
+
     //METHODS
     /**
      * Creates new TransactionRelation between Transaction and User
@@ -44,12 +75,16 @@ class TransactionRelation extends Database
     {
         if (!isset($this->transactionId)) throw new Exception("La transaction doit être sélectionner");
         if (!isset($this->contributorId)) throw new Exception("Le contributeur doit être sélectionner");
+        if (!isset($this->groupId)) throw new Exception("Le group doit être sélectionner");
+        if (!isset($this->amount)) throw new Exception("La quantité doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("INSERT INTO `transaction_user` IF NOT EXISTS (`transaction_id`,`contributor_id`)
-            VALUES (:transactionId,:contributorId)");
+        $queryExecute = $this->db->prepare("INSERT INTO `transaction_user`(`transaction_id`,`contributor_id`,`group_id`,`amount`)
+            VALUES (:transactionId,:contributorId,:groupId,:amount)");
 
         $queryExecute->bindValue(":transactionId", $this->transactionId, PDO::PARAM_INT);
         $queryExecute->bindValue(":contributorId", $this->contributorId, PDO::PARAM_INT);
+        $queryExecute->bindValue(":groupId", $this->groupId, PDO::PARAM_INT);
+        $queryExecute->bindValue(":amount", $this->amount, PDO::PARAM_INT);
 
         return $queryExecute->execute();
     }
@@ -61,7 +96,7 @@ class TransactionRelation extends Database
     {
         if (!isset($this->transactionId)) throw new Exception("La transaction doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("SELECT `contributor_id` FROM `transaction_user` WHERE `transaction_id` = :transaction");
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `contributor_id` FROM `transaction_user` WHERE `transaction_id` = :transaction");
 
         $queryExecute->bindValue(":transaction", $this->transactionId, PDO::PARAM_INT);
         $queryExecute->execute();
@@ -76,9 +111,24 @@ class TransactionRelation extends Database
     {
         if (!isset($this->contributorId)) throw new Exception("Le contributeur doit être sélectionner");
 
-        $queryExecute = $this->db->prepare("SELECT `transaction_id` FROM `transaction_user` WHERE `contributor_id` = :contributor");
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `transaction_id` FROM `transaction_user` WHERE `contributor_id` = :contributor");
 
         $queryExecute->bindValue(":contributor", $this->contributorId, PDO::PARAM_INT);
+        $queryExecute->execute();
+
+        return $queryExecute->fetchAll(PDO::FETCH_ASSOC);
+    }
+    /**
+     * Gets all transactions from a designated group
+     * @return array all transactions from specified group indexed by the column name "transaction_id" (recommended use with foreach)
+     */
+    public function getTransactionsFromGroup()
+    {
+        if (!isset($this->groupId)) throw new Exception("Le ^groupe doit être sélectionner");
+
+        $queryExecute = $this->db->prepare("SELECT DISTINCT `transaction_id` FROM `transaction_user` WHERE `group_id` = :group");
+
+        $queryExecute->bindValue(":group", $this->groupId, PDO::PARAM_INT);
         $queryExecute->execute();
 
         return $queryExecute->fetchAll(PDO::FETCH_ASSOC);

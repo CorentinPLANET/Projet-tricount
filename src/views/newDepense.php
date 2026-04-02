@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 
 <header>
-    <a href="groupDepense">
+    <a href="groupDepense?id=<?= $group['id'] ?>">
         <img src="../assets/img/Back.png" alt="Back">
     </a>
     <p>Ajouter une dépense</p>
@@ -9,9 +9,9 @@
 
 <div class="content">
     <nav class="nav">
-        <a class="nav-item" href="newDepense">Dépense</a>
-        <a class="nav-center" href="newRevenu">Revenu</a>
-        <a class="nav-item" href="newTransfert">Transfert</a>
+        <a class="nav-item" href="newDepense?id=<?= $group['id'] ?>">Dépense</a>
+        <a class="nav-center" href="newRevenu?id=<?= $group['id'] ?>">Revenu</a>
+        <a class="nav-item" href="newTransfert?id=<?= $group['id'] ?>">Transfert</a>
     </nav>
 
     <form action="" method="post" class="form">
@@ -26,7 +26,7 @@
         <div class="amount">
             <p>Montant</p>
             <div class="amount-content">
-                <input type="number" name="amount" class="amount-input">
+                <input type="number" name="amount" class="amount-input" id="amount-input">
                 <div class="amount-option"></div>
             </div>
         </div>
@@ -34,11 +34,11 @@
             <div class="depense-creator">
                 <p>Payé par</p>
                 <select name="creator" class="creator-input">
-                    <option value="0" selected>Alex</option>
-                    <option value="1">Bruno</option>
-                    <option value="2">Julia</option>
-                    <option value="3">Loic</option>
-                    <option value="4">Thomas</option>
+                    <?php
+                    foreach ($users as $user) {
+                        echo '<option value="' . $user["id"] . '" selected>' . $user["username"] . '</option>';
+                    }
+                    ?>
                 </select>
             </div>
             <div class="date">
@@ -55,47 +55,27 @@
             </select>
         </div>
         <div class="all-contributor">
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
+            <?php
+            foreach ($users as $user) {
+                echo '<div class="contributor"> 
+                <div class="contributor-left">
+                <input type="checkbox" name="' . $user["id"] . '" class="contributor-input">
+                    <p class="contributor-name">' . $user["username"] . '</p>
                 </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-            <div class="contributor">
-                <div class="contributor-left"><input type="checkbox" name="contributes" class="contributor-input">
-                    <p class="contributor-name">Alex</p>
-                </div>
-                <p class="contributor-amount">4,00€</p>
-            </div>
-        </div>
-        <button type="submit" value="save" class="save" >Sauvegarder</button>
+                <input class="contributor-amount" name="contributor-amount' . $user["id"] . '" readonly></input>
+            </div>';
+            }
+            ?>
+            <button type="submit" value="save" class="save">Sauvegarder</button>
     </form>
-</div>
+
+    <script src="../assets/js/newDepenseScript.js"></script>
 
 
 
 
-
-<?php render("default", true, [
-    "title" => "Tricount",
-    "css" => "newDepense",
-    "content" => ob_get_clean()
-]); ?>
+    <?php render("default", true, [
+        "title" => "Tricount",
+        "css" => "newDepense",
+        "content" => ob_get_clean()
+    ]); ?>

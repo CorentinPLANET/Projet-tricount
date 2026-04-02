@@ -1,3 +1,8 @@
 <?php 
+$group_id = $_GET['id'];
 
-render("newTransfert",false);
+$groupObject = new Models\Group;
+$group = $groupObject->getById($group_id);
+
+render("newTransfert", false,[
+    "group" => $group]);

@@ -14,21 +14,13 @@
 </header>
 <div class="container">
 
-
-    <h1> City-trip </h1>
-
-    <?php if (!empty($success)): ?>
-        <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
-    <?php endif; ?>
-
-    <?php if (!empty($error["action"])): ?>
-        <div class="alert alert-error"><?= htmlspecialchars($error["action"],) ?></div>
-    <?php endif; ?>
-
+    <?php 
+    echo "<h1>" . $group['name'] . " </h1>"   ?>
+    
     <div class="groupNav">
-        <a class="groupNav-item" href="groupDepense">Dépenses</a>
-        <a class="groupNav-center" href="groupEquilibre">Equilibres</a>
-        <a class="groupNav-item" href="groupPhotos">Photos</a>
+        <a class="groupNav-item" href="groupDepense?id=<?= $group['id'] ?>">Dépenses</a>
+        <a class="groupNav-center" href="groupEquilibre?id=<?= $group['id'] ?>">Equilibres</a>
+        <a class="groupNav-item" href="groupPhotos?id=<?= $group['id'] ?>">Photos</a>
     </div>
 
     <div class="section-equilibre">
