@@ -91,6 +91,7 @@ header img {
 .title-input {
   width: 70%;
   height: 10vw;
+  padding: 0 5%;
   border: none;
   border-radius: 20px;
   color: #ffffff;

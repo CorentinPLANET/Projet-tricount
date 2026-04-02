@@ -62,20 +62,20 @@
                 <input type="checkbox" name="' . $user["id"] . '" class="contributor-input">
                     <p class="contributor-name">' . $user["username"] . '</p>
                 </div>
-                <p class="contributor-amount"></p>
+                <input class="contributor-amount" name="contributor-amount' . $user["id"] . '" readonly></input>
             </div>';
             }
             ?>
             <button type="submit" value="save" class="save">Sauvegarder</button>
     </form>
-</div>
-<script src="../assets/js/newDepenseScript.js"></script>
+
+    <script src="../assets/js/newDepenseScript.js"></script>
 
 
 
 
-<?php render("default", true, [
-    "title" => "Tricount",
-    "css" => "newDepense",
-    "content" => ob_get_clean()
-]); ?>
+    <?php render("default", true, [
+        "title" => "Tricount",
+        "css" => "newDepense",
+        "content" => ob_get_clean()
+    ]); ?>

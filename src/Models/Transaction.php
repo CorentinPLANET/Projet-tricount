@@ -52,15 +52,23 @@ class Transaction extends Database
         if (empty($this->creatorId)) throw new Exception("ERREUR identifiant createur");
         if (empty($this->amount)) throw new Exception("ERREUR quantité argent");
 
-        $queryExecute = $this->db->prepare("INSERT INTO `transactions`(`name`,`creator_id`,`amount`) 
+        $queryExecute = $this->db->prepare("INSERT INTO `transactions`(`transaction_name`,`creator_id`,`amount`) 
         VALUES (:name, :creator_id, :amount)");
 
         $queryExecute->bindValue(":name", $this->name, PDO::PARAM_STR);
         $queryExecute->bindValue(":creator_id", $this->creatorId, PDO::PARAM_INT);
-        $queryExecute->bindValue(":name", $this->amount, PDO::PARAM_INT);
+        $queryExecute->bindValue(":amount", $this->amount, PDO::PARAM_INT);
 
         return $queryExecute->execute();
     }
+    /**Returns lastId inserted into table during this session
+     * @return int
+     */
+    public function lastId()
+    {
+        return $this->db->lastInsertId();
+    }
+
     /** Deletes a Transaction
      * @param int $value Id of transaction deleted
      * @return bool true if successful, false otherwise

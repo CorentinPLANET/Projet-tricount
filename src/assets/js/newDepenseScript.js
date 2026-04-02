@@ -7,6 +7,6 @@ amount_input.addEventListener("change", () => {
     let contribution = total / contributors.length
 
     for (const contributor of contributors) {
-        contributor.innerText = contribution.toFixed(2) + "€"
+        contributor.value = contribution.toFixed(2)
     }
 })
