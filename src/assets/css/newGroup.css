@@ -6,9 +6,11 @@ header {
   top: 0;
   padding: 3% 0;
   width: 100vw;
+  max-width: 640px;
   background-color: #202020;
 }
-header > a {
+
+header>a {
   margin-left: 2%;
 }
 
@@ -22,43 +24,53 @@ header img {
   flex-direction: column;
   align-items: center;
 }
+
 .form {
   width: 90vw;
+  max-width: 560px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .title {
   width: 100%;
 }
-.title > p {
+
+.title>p {
   margin-left: 1%;
 }
+
 .title-content {
   margin-top: 1%;
   display: flex;
   justify-content: space-between;
 }
+
 .title-input {
   width: 85%;
-  height: 10vw;
+  height: 4rem;
   border: none;
   border-radius: 20px;
   color: #ffffff;
   background-color: #303030;
 }
+
 .title-option {
   border-radius: 20px;
   background-color: #303030;
-  width: 10vw;
-  height: 10vw;
+  aspect-ratio: 1;
+  height: 4rem;
 }
+
 .save {
   position: fixed;
   bottom: 2vh;
+  left: 1.5rem;
   width: 90%;
-  padding: 3% 0;
+  max-width: 560px;
+  padding: 1rem 0;
   border: none;
   color: #ffffff;
   border-radius: 8px;
