@@ -3,37 +3,44 @@ header {
   justify-content: space-between;
   position: fixed;
   top: 0;
-  padding: 3% 0;
+  padding: 1rem 0;
   width: 100vw;
+  max-width: 640px;
   background-color: #202020;
 }
+
 .header-right {
   display: flex;
   width: 20%;
   justify-content: space-between;
   margin-right: 2%;
 }
-header > a {
+
+header>a {
   margin-left: 2%;
 }
 
 header img {
   width: 40px;
 }
+
 .content {
   margin: 15% 0 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .groupNav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 90vw;
+  max-width: 560px;
   margin-top: 4%;
   border: 2px solid #ffffff;
   border-radius: 20px;
 }
+
 .groupNav-item,
 .groupNav-center {
   text-align: center;
@@ -43,12 +50,14 @@ header img {
   align-items: center;
   padding: 4% 0;
 }
+
 .groupNav-center {
   border-style: solid;
   border-color: #ffffff;
   border-top: 2px;
   border-bottom: 2px;
 }
+
 .groupNav-item:first-child:hover {
   background-color: white;
   border-radius: 10px 0 0 10px;
@@ -60,26 +69,33 @@ header img {
   border-radius: 0 0 0 0;
   color: black;
 }
+
 .groupNav-item:last-child:hover {
   background-color: white;
   border-radius: 0 10px 10px 0;
   color: black;
 }
+
 .depense {
   display: flex;
   width: 80vw;
+  max-width: 520px;
   margin-top: 4%;
   justify-content: space-around;
 }
+
 .depense-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .transaction {
   margin-top: 4%;
   width: 90vw;
+  max-width: 560px;
 }
+
 .transaction-item {
   display: flex;
   justify-content: space-between;
@@ -89,14 +105,17 @@ header img {
   margin: 4% 0;
   border-radius: 20px;
 }
+
 .transaction-item-left {
   display: flex;
   flex-direction: row;
   margin-left: 4%;
 }
+
 .transaction-item-right {
   margin-right: 4%;
 }
+
 .transaction-info {
   display: flex;
   flex-direction: column;
@@ -113,6 +132,7 @@ header img {
   align-items: center;
   justify-self: center;
   width: 16vw;
+  max-width: 100px;
   text-decoration: none;
   text-align: center;
 }

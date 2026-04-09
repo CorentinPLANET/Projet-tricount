@@ -41,7 +41,7 @@
                     <p>payé par " . $name . "</p>
                 </div>
             </div>
-            <p class='transaction-item-right'>" . $transaction['amount'] . "</p>
+            <p class='transaction-item-right'>" . $transaction['amount'] . "€</p>
         </div>";
         }
         ?>
